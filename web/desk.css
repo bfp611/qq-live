@@ -1,0 +1,87 @@
+/* ===== ?desk=xp：Windows XP 桌面（素材全部是原版/真实图标，来源见 CREDITS.md） ===== */
+body.desk { background:#000; }
+#deskroot { position:absolute; left:0; top:0; transform-origin:0 0; overflow:hidden; background:#245edb url(xp/ui/bliss.jpg) center / 100% 100% no-repeat;
+  font-family: Tahoma, SimSun, "Songti SC", STSong, "Noto Serif CJK SC", serif; user-select:none; }
+#deskroot #win { filter: drop-shadow(2px 4px 4px rgba(0,0,0,.45)); }
+/* 桌面图标：32px 图标 + 12px 白字黑影（XP 默认样式） */
+#icons { position:absolute; left:6px; top:6px; display:grid; grid-auto-flow:column; grid-template-rows:repeat(8, 80px); grid-auto-columns:76px; }
+.dicon { width:76px; height:80px; display:flex; flex-direction:column; align-items:center; box-sizing:border-box; padding-top:4px; }
+.dicon img { width:32px; height:32px; display:block; }
+.dicon span { margin-top:4px; padding:0 2px 1px; font-size:12px; line-height:14px; color:#fff; text-align:center; text-shadow: 1px 1px 1px #000; max-width:74px; }
+.dicon.sel img { filter: drop-shadow(0 0 0 #316ac5) brightness(.75) sepia(1) hue-rotate(185deg) saturate(4); }
+.dicon.sel span { background:#316ac5; text-shadow:none; }
+/* 任务栏：抄自开源 ShizukuIchi/winXP（MIT）对原版 Luna 任务栏的还原，开始按钮是原图 */
+#taskbar { position:absolute; left:0; right:0; bottom:0; height:30px; display:flex;
+  background: linear-gradient(to bottom, #1f2f86 0, #3165c4 3%, #3682e5 6%, #4490e6 10%, #3883e5 12%, #2b71e0 15%, #2663da 18%, #235bd6 20%, #2258d5 23%, #2157d6 38%, #245ddb 54%, #2562df 86%, #245fdc 89%, #2158d4 92%, #1d4ec0 95%, #1941a5 98%); }
+#taskbar .left { height:100%; flex:1; overflow:hidden; display:flex; align-items:center; }
+#start { height:100%; margin-right:10px; flex:none; }
+#start img { height:100%; display:block; }
+.tbtn { flex:1; max-width:160px; color:#fff; border-radius:2px; margin:2px 3px 0 0; padding:0 8px; height:22px; font-size:11px; background-color:#3c81f3;
+  box-shadow: inset -1px 0 rgba(0,0,0,.3), inset 1px 1px 1px rgba(255,255,255,.2); position:relative; display:flex; align-items:center; font-family: Tahoma, SimSun, "Songti SC", serif; }
+.tbtn img { width:16px; height:16px; flex:none; }
+.tbtn span { position:absolute; left:27px; right:8px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.tbtn.act { background-color:#1e52b7; box-shadow: inset 0 0 1px 1px rgba(0,0,0,.2), inset 1px 0 1px rgba(0,0,0,.7); }
+#tray { flex:none; height:100%; display:flex; align-items:center; gap:6px; padding:0 10px; margin-left:10px; color:#fff; font-size:11px; font-family: Tahoma, SimSun, "Songti SC", serif;
+  background: linear-gradient(to bottom, #0c59b9 1%, #139ee9 6%, #18b5f2 10%, #139beb 14%, #1290e8 19%, #0d8dea 63%, #0d9ff1 81%, #0f9eed 88%, #119be9 91%, #1392e2 94%, #137ed7 97%, #095bc9 100%);
+  border-left:1px solid #1042af; box-shadow: inset 1px 0 1px #18bbff; }
+#tray img { width:16px; height:16px; }
+#tray #clk { margin:0 0 0 4px; font-weight:lighter; }
+
+/* ===== 千千静听（5.x 经典皮肤原图，268×165）+ KTV 桌面歌词 ===== */
+#tt { position:absolute; width:268px; height:165px; filter: drop-shadow(2px 4px 4px rgba(0,0,0,.5)); transition: opacity .4s; }
+#tt.off, #ktv.off { opacity:0; pointer-events:none; }
+#tt > * { position:absolute; display:block; }
+#tt .skin { left:0; top:0; width:268px; height:165px; }
+#tt-vis { left:11px; top:30px; width:136px; height:48px; }
+#tt-led { left:204px; top:32px; width:50px; height:13px; display:flex !important; }
+#tt-led b { width:10px; height:13px; background:url(xp/tt/number.png) 0 0 no-repeat; }
+#tt-stereo, #tt-status { text-align:right; font:12px/12px SimSun, "Songti SC", STSong, "Noto Serif CJK SC", serif; white-space:nowrap; }
+#tt-stereo { left:210px; top:50px; width:44px; color:#00ffff; }
+#tt-status { left:181px; top:65px; width:73px; color:#dcdcdc; }
+#tt-icon { left:8px; top:86px; width:16px; height:16px; }
+#tt-info { left:28px; top:88px; width:230px; height:12px; overflow:hidden; background:#000; color:#ffff06; font:12px/12px SimSun, "Songti SC", STSong, "Noto Serif CJK SC", serif; white-space:nowrap; }
+#tt-infot { display:inline-block; }
+#tt-infot.scroll { animation: ttscroll var(--dur,10s) linear infinite alternate; }
+@keyframes ttscroll { 0%,12% { transform:translateX(0); } 88%,100% { transform:translateX(calc(-1 * var(--over,0px))); } }
+#tt-thumb { left:18px; top:106px; width:23px; height:11px; background:url(xp/tt/progress_thumb.png) 0 0 no-repeat; }
+#tt-vfill { left:148px; top:132px; width:50px; height:6px; background:url(xp/tt/volume_fill.png) 0 0 no-repeat; }
+#tt-vthumb { left:195px; top:130px; width:10px; height:18px; background:url(xp/tt/volume_thumb.png) 0 0 no-repeat; }
+#tt .b { background-repeat:no-repeat; background-position:0 0; }
+#tt-play { left:8px; top:125px; width:30px; height:30px; background-image:url(xp/tt/play.png); }
+#tt-play.pause { background-image:url(xp/tt/pause.png); }
+#tt-stop { left:43px; top:130px; width:20px; height:20px; background-image:url(xp/tt/stop.png); }
+#tt-prev { left:70px; top:130px; width:20px; height:20px; background-image:url(xp/tt/prev.png); }
+#tt-next { left:95px; top:130px; width:20px; height:20px; background-image:url(xp/tt/next.png); }
+#tt-mute { left:122px; top:130px; width:20px; height:20px; background-image:url(xp/tt/mute.png); }
+#tt-open { left:130px; top:3px; width:19px; height:19px; background-image:url(xp/tt/open.png); }
+#tt-lyric { left:158px; top:3px; width:19px; height:19px; background-image:url(xp/tt/lyric.png); }
+#tt-eq { left:180px; top:3px; width:19px; height:19px; background-image:url(xp/tt/equalizer.png); }
+#tt-pl { left:202px; top:3px; width:19px; height:19px; background-image:url(xp/tt/playlist.png); }
+#tt-min { left:229px; top:6px; width:15px; height:15px; background-image:url(xp/tt/minimize.png); }
+#tt-exit { left:245px; top:6px; width:15px; height:15px; background-image:url(xp/tt/exit.png); }
+
+/* KTV 桌面歌词：两行，上行靠左、下行靠右轮流；未唱=白字蓝描边，唱过=金色，从左往右扫 */
+#ktv { position:absolute; left:190px; right:40px; bottom:40px; height:96px; transition: opacity .5s; pointer-events:none;
+  font-family: "Microsoft YaHei", "PingFang SC", "Heiti SC", "Noto Sans CJK SC", "WenQuanYi Micro Hei", sans-serif; font-weight:800; }
+#ktv .kl { position:absolute; left:0; right:0; height:44px; line-height:44px; font-size:32px; white-space:nowrap; }
+#ktv .kl.a { top:0; text-align:left; } #ktv .kl.b { top:50px; text-align:right; }
+#ktv .kl { display:flex; }
+#ktv .kl.a { justify-content:flex-start; transform-origin:0 50%; } #ktv .kl.b { justify-content:flex-end; transform-origin:100% 50%; }
+#ktv .kw { position:relative; display:block; white-space:nowrap; }
+#ktv .k0, #ktv .k1 { display:block; paint-order: stroke fill; -webkit-text-stroke: 6px #12469c; letter-spacing:1px; white-space:nowrap; }
+#ktv .k0 { color:#fff; text-shadow: 0 2px 6px rgba(0,20,80,.55); }
+#ktv .k1 { position:absolute; left:0; top:0; height:100%; width:0; overflow:hidden; color:#ffd42a; -webkit-text-stroke-color:#7b3a00; }
+
+/* 点歌队列：千千静听的「播放列表」窗口（皮肤原图拉高），贴在播放器正下方 */
+#pl { position:absolute; width:268px; height:146px; filter: drop-shadow(2px 4px 4px rgba(0,0,0,.5)); transition: opacity .4s; }
+#pl.off { opacity:0; pointer-events:none; }
+#pl > img { position:absolute; display:block; }
+#pl .skin { left:0; top:0; width:268px; height:146px; }
+#pl-title { left:106px; top:8px; } #pl-tool { left:10px; top:26px; }
+#pl-rows { position:absolute; left:11px; top:51px; width:246px; height:84px; overflow:hidden; font:12px/14px SimSun, "Songti SC", STSong, "Noto Serif CJK SC", serif; }
+#pl-rows .r { height:14px; white-space:nowrap; display:flex; color:#0080ff; }
+#pl-rows .r b { font-weight:normal; color:#008000; width:20px; flex:none; text-align:right; margin-right:4px; }
+#pl-rows .r .n { flex:1; overflow:hidden; text-overflow:ellipsis; }
+#pl-rows .r i { font-style:normal; color:#c08020; flex:none; max-width:70px; overflow:hidden; text-overflow:ellipsis; margin-left:4px; }
+#pl-rows .r.cur .n, #pl-rows .r.cur b { color:#00ff00; }
+#pl-rows .r.hint { color:#808080; padding-left:24px; }

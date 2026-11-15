@@ -1,0 +1,69 @@
+/* XP 加强包：开机 / 欢迎 / 注销 / 关机 / 蓝屏 画面、托盘气泡、QQ 上线提示、托盘 QQ 闪烁（xp-core.js / xp-screens.js） */
+#xpscr { position:absolute; inset:0; z-index:2000000; background:#000; overflow:hidden; cursor:none; user-select:none; font-family: Tahoma, "Microsoft YaHei", SimSun, sans-serif; }
+#xpscr * { cursor:none; }
+#xpscr.fade { transition:opacity .6s; opacity:0; }
+/* 开机画面：640×480 原版图缩放到 720 高；进度条小方块是自己按原版像素叠上去的 */
+#xpscr .boot { position:absolute; left:50%; top:0; width:640px; height:480px; transform-origin:50% 0; transform:translateX(-50%) scale(1.5); background:#000 center/640px 480px no-repeat; }
+#xpscr .boot .bar { position:absolute; left:258px; top:354px; width:120px; height:9px; overflow:hidden; }
+#xpscr .boot .bar i { position:absolute; top:0; left:-22px; width:22px; height:9px; font-size:0; animation:xpbar 1.45s steps(18) infinite; }
+#xpscr .boot .bar i b { display:inline-block; width:6px; height:9px; margin-right:2px; background:url(xp/boot/blk.png) 0 0/6px 9px; }
+@keyframes xpbar { to { left:120px; } }
+#xpscr .boot.home .bar i b { background-image:url(xp/boot/blk_home.png); }
+/* 欢迎 / 注销 / 关机：Luna 蓝色登录界面 */
+#xpscr .luna { position:absolute; inset:0; background:radial-gradient(ellipse at 30% 40%, #7b9be6 0%, #5a7edc 55%, #4a6fd0 100%); color:#fff; }
+#xpscr .luna .top { position:absolute; left:0; right:0; top:0; height:90px; background:#00309c; border-bottom:2px solid; border-image:linear-gradient(90deg,#00309c,#c9d8f8 50%,#00309c) 1; }
+#xpscr .luna .bot { position:absolute; left:0; right:0; bottom:0; height:104px; background:#00309c; border-top:2px solid; border-image:linear-gradient(90deg,#00309c,#e08a2e 50%,#00309c) 1; }
+#xpscr .luna .logo { position:absolute; left:130px; top:218px; width:380px; height:274px; background:url(xp/boot/logo.png) center/contain no-repeat; }
+#xpscr .luna .sep { position:absolute; left:640px; top:130px; bottom:150px; width:2px; background:linear-gradient(#5a7edc,#fff 50%,#5a7edc); opacity:.8; }
+#xpscr .luna .hint { position:absolute; left:130px; top:500px; width:380px; text-align:right; font-size:22px; color:#fff; }
+#xpscr .luna .tile { position:absolute; left:690px; top:250px; width:430px; height:92px; border-radius:8px; display:flex; align-items:center; gap:18px; padding:10px 18px; box-sizing:border-box; transition:background .25s; }
+#xpscr .luna .tile.sel { background:linear-gradient(90deg,rgba(0,48,156,.55),rgba(0,48,156,0)); }
+#xpscr .luna .tile img { width:64px; height:64px; border:2px solid #fff; border-radius:6px; background:#fff; box-sizing:border-box; }
+#xpscr .luna .tile b { font-size:30px; font-weight:700; text-shadow:1px 1px 2px rgba(0,0,0,.45); }
+#xpscr .luna .tile small { display:block; font-size:15px; opacity:.9; margin-top:6px; }
+#xpscr .luna .welcome { position:absolute; left:0; right:0; top:290px; text-align:center; font:italic 44px "Trebuchet MS", Tahoma, sans-serif; text-shadow:2px 2px 4px rgba(0,0,0,.4); }
+#xpscr .luna .msg { position:absolute; left:900px; top:316px; transform:translateX(-50%); width:900px; text-align:center; font:italic 40px "Trebuchet MS","Microsoft YaHei",Tahoma,sans-serif; text-shadow:2px 2px 4px rgba(0,0,0,.4); }
+#xpscr .luna .pw { position:absolute; left:34px; bottom:26px; display:flex; align-items:center; gap:12px; font-size:18px; }
+#xpscr .luna .pw img { width:40px; height:40px; }
+#xpscr .luna .tip { position:absolute; right:40px; bottom:30px; width:520px; font-size:15px; line-height:22px; text-align:left; opacity:.95; }
+#xpscr .off { position:absolute; inset:0; background:#000; color:#c0c0c0; display:flex; flex-direction:column; align-items:center; justify-content:center; font:22px "Microsoft YaHei",Tahoma,sans-serif; gap:14px; }
+#xpscr .off small { font-size:14px; opacity:.6; }
+/* 蓝屏 */
+#xpscr.bsod { background:#0000aa; }
+#xpscr .bsodtxt { position:absolute; left:48px; top:36px; right:30px; color:#fff; font:17px/21px "Lucida Console","Courier New",monospace; white-space:pre-wrap; }
+/* 假重装系统（XP.setup）：文字界面 + 图形界面 */
+#xpscr.setup-text { background:#0000a8; }
+#xpscr .setuptxt { position:absolute; left:56px; top:40px; right:40px; margin:0; color:#c0c0c0; font:20px/28px "Lucida Console","Courier New","Microsoft YaHei",monospace; white-space:pre-wrap; }
+#xpscr.setup-gui { background:#fff; }
+#xpscr .sg { position:absolute; inset:0; display:flex; background:linear-gradient(#3a6ea5,#1d4fa0 18%,#fff 18%); }
+#xpscr .sl { width:330px; margin-top:130px; background:linear-gradient(#2a5db0,#0a3a8c); color:#fff; padding:26px 28px; box-sizing:border-box; height:calc(100% - 130px); }
+#xpscr .sl .sh { font:italic 30px "Trebuchet MS",Tahoma,sans-serif; margin-bottom:28px; text-shadow:1px 1px 2px rgba(0,0,0,.4); }
+#xpscr .sl ul { list-style:none; margin:0; padding:0; font-size:20px; line-height:44px; }
+#xpscr .sl li { opacity:.55; padding-left:26px; position:relative; } #xpscr .sl li.done { opacity:.9; } #xpscr .sl li.done::before { content:"✔"; position:absolute; left:0; color:#8be28b; } #xpscr .sl li.cur { opacity:1; font-weight:700; } #xpscr .sl li.cur::before { content:"▶"; position:absolute; left:0; color:#ffd24d; }
+#xpscr .sr { flex:1; margin-top:130px; padding:36px 56px; color:#111; position:relative; }
+#xpscr .sr h1 { font:700 34px "Microsoft YaHei",Tahoma,sans-serif; margin:0 0 20px; color:#0a3a8c; }
+#xpscr .seta { font-size:22px; margin-bottom:24px; } #xpscr .seta b { font-size:28px; color:#c1272d; }
+#xpscr .sbar { height:26px; border:2px solid #7f9db9; background:#fff; border-radius:3px; padding:2px; box-sizing:border-box; width:620px; } #xpscr .sbar i { display:block; height:100%; width:0; background:repeating-linear-gradient(90deg,#37b13b 0 12px,#fff 12px 15px); }
+#xpscr .stip { margin-top:30px; font-size:24px; color:#244; min-height:34px; }
+#xpscr .sfoot { position:absolute; left:56px; bottom:30px; font-size:15px; color:#888; }
+/* 托盘气泡通知（XP 原版是淡黄色圆角气泡 + 尾巴指向托盘） */
+.xp-balloon { position:absolute; right:12px; bottom:36px; width:236px; z-index:1500000; background:#ffffe1; border:1px solid #000; border-radius:6px; padding:8px 10px 10px; box-sizing:border-box; font:11px/15px Tahoma,"Microsoft YaHei",SimSun,sans-serif; color:#000; box-shadow:2px 2px 3px rgba(0,0,0,.35); opacity:0; transform:translateY(6px); transition:opacity .2s, transform .2s; cursor:pointer; }
+.xp-balloon.on { opacity:1; transform:none; }
+.xp-balloon .bh { display:flex; align-items:center; gap:6px; margin-bottom:4px; }
+.xp-balloon .bh b { flex:1; font-size:12px; }
+.xp-balloon .bh img { width:16px; height:16px; }
+.xp-balloon .bi { width:16px; height:16px; border-radius:50%; background:radial-gradient(circle at 35% 30%,#8fb8ff,#1c55d8); position:relative; flex:none; }
+.xp-balloon .bi::after { content:'i'; position:absolute; inset:0; text-align:center; font:700 12px/16px serif; color:#fff; }
+.xp-balloon .bi.warn { background:radial-gradient(circle at 35% 30%,#ffe98a,#e0a800); } .xp-balloon .bi.warn::after { content:'!'; color:#000; }
+.xp-balloon .bi.error { background:radial-gradient(circle at 35% 30%,#ff9a8a,#d02010); } .xp-balloon .bi.error::after { content:'×'; }
+.xp-balloon .bx { font:normal 15px/12px Tahoma; color:#555; padding:0 2px; border:1px solid transparent; border-radius:2px; } .xp-balloon .bx:hover { border-color:#888; background:#fff; }
+.xp-balloon .tail { position:absolute; right:26px; bottom:-9px; width:0; height:0; border-left:4px solid transparent; border-right:9px solid transparent; border-top:9px solid #000; }
+.xp-balloon .tail::after { content:''; position:absolute; left:-4px; top:-10px; border-left:4px solid transparent; border-right:7px solid transparent; border-top:8px solid #ffffe1; }
+#tray #tray-qq { cursor:pointer; }
+/* QQ 好友上线 / 消息提示（QQ2006 的右下角小窗） */
+.qq-toast { position:absolute; right:256px; bottom:36px; width:190px; z-index:1400000; background:#eaf3ff; border:1px solid #2a6bb7; border-radius:3px; box-shadow:2px 2px 5px rgba(0,0,0,.35); font:12px Tahoma,"Microsoft YaHei",SimSun,sans-serif; color:#0b3a73; opacity:0; transform:translateY(12px); transition:opacity .25s, transform .25s; }
+.qq-toast.on { opacity:1; transform:none; }
+.qq-toast .qh { display:flex; align-items:center; gap:4px; height:20px; padding:0 4px; background:linear-gradient(#79b4f2,#3c86d4); color:#fff; font-weight:700; border-radius:2px 2px 0 0; }
+.qq-toast .qh img { width:14px; height:14px; } .qq-toast .qh span { flex:1; } .qq-toast .qh .qx { font:normal 14px/14px Tahoma; padding:0 3px; }
+.qq-toast .qb { display:flex; gap:8px; align-items:center; padding:10px 10px 12px; } .qq-toast .qb .av { width:40px; height:40px; border:1px solid #7aa7d8; background:#fff; }
+.qq-toast .qb b { display:block; margin-bottom:3px; }

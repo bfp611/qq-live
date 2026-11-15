@@ -1,0 +1,104 @@
+/* 直播间覆盖层：基于 qq2006.css 的修改 */
+:root { --font: SimSun, NSimSun, "Songti SC", STSong, "Noto Serif CJK SC", serif; }
+html, body { width:100%; height:100%; overflow:hidden; margin:0; padding:0; background:#4a86d9; font-size:12px; }
+body.bg-xp { background: url('img/bg.jpeg') center / cover no-repeat; }
+body.bg-none, body.bg-none html { background: transparent !important; }
+#win { position:absolute; transform-origin: 0 0; user-select:none; }
+#win.qq-im { position:absolute; width:auto; height:auto; border-radius:8px 8px 0 0; }
+.qq-im .qq-title-text { max-width: calc(100% - 90px); overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
+.qq-im-big-toolbar button { cursor:default; font-size:12px; }
+#qq-im-groupmail { background-image:url('img/im/IMBigToolbarGroupmail.png'); }
+#qq-im-groupspace { background-image:url('img/im/IMBigToolbarGroupSpace.png'); }
+#qq-im-muti { background-image:url('img/im/IMBigToolbarMutiAudio.png'); }
+#qq-im-live { background-image:url('img/im/IMBigToolbarQQLive.png'); }
+#qq-im-invite { background-image:url('img/im/IMBigToolbarInvite.png'); }
+#qq-im-music { background-image:url('img/im/IMBigToolbarMusic.png'); }
+.qq-im-friend-info { cursor:default; height: auto; min-height: 22px; overflow:hidden; line-height:20px; }
+.qq-im-friend-info p { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.qq-im-chat-msg-list { list-style:none; overflow-y:hidden; font-size: var(--fs, 12px); }
+.qq-im-chat-msg-list li { margin-bottom: 1px; }
+.qq-im-chat-msg-list li p { word-break: break-all; white-space: pre-wrap; }
+.qq-im-chat-msg-list li p:first-of-type { white-space: nowrap; overflow:hidden; text-overflow: ellipsis; }
+.qq-im-chat-msg-list li p:first-of-type span { font-size: var(--fs, 12px); }
+.qq-im-chat-msg-list li p.sysline { padding-left:0; color:#7f7f7f; }
+.qq-im-chat-msg-list li.gift p.sysline { color:#d4381a; }
+.qq-im-chat-msg-list li.follow p.sysline { color:#2d794b; }
+.qq-im-chat-msg-list li.notice p.sysline { color:#0a64c8; }
+.qq-im-chat-msg-list li p.sysline b { font-weight: bold; }
+.qq-im-chat-msg-list li p.sysline span.t { padding-left:8px; color:#7f7f7f; font-size: var(--fs,12px); }
+.qq-im-chat-msg-list img.ava { width:16px; height:16px; vertical-align:text-bottom; margin-right:3px; }
+.qq-im-chat-msg-list li.new { animation: flashin .25s ease-out; }
+@keyframes flashin { from { background:#fff8c8; } to { background:transparent; } }
+.qq-im-chat-send { height:70px; font-size:12px; color:#000; background:#fff; padding:4px; overflow:hidden; line-height:1.4; flex-shrink:0; cursor:text; }
+.qq-im-chat-send .caret { display:inline-block; width:1px; height:12px; background:#000; vertical-align:text-bottom; animation: blink 1s steps(1) infinite; }
+.qq-im-chat-send .ph { color:#9aa; }
+@keyframes blink { 50% { opacity:0; } }
+.qq-im-btns .qq-btn { height:20px; cursor:default; font-family: var(--font); }
+.qq-im-btns { flex-shrink:0; }
+/* 右侧：群成员 + 群信息 */
+.qq-im-side { width:150px; flex-shrink:0; background:#fff; }
+.qq-im-side > .members { flex:1; min-height:0; display:flex; flex-direction:column; }
+.qq-im-side .qq-im-side-btn { flex-shrink:0; cursor:default; }
+.qq-im-side ul.mlist { list-style:none; flex:1; overflow:hidden; padding:2px; min-height:0; }
+.qq-im-side ul.mlist li { height:20px; line-height:20px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; color:#071e81; }
+.qq-im-side ul.mlist li img { width:16px; height:16px; vertical-align:middle; margin-right:4px; }
+.qq-im-side ul.mlist li.anchor { color:#d4381a; font-weight:bold; }
+.qq-im-zone { flex-shrink:0; padding-bottom:3px; }
+.qq-im-zone div { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.hide { display:none !important; }
+button { font-size:12px; font-family: var(--font); }
+.qq-im-side-btn { font-size:12px; }
+
+/* ===== QQ秀 / AI 主播 ===== */
+.qq-im-side.hasshow { width: 178px; }
+.qqshow { flex: 0 0 auto; display:flex; flex-direction:column; height: 48%; min-height: 190px; max-height: 300px; border-bottom:1px solid rgb(53,111,175); }
+.stage { position:relative; flex:1; min-height:0; overflow:hidden; background: #e9a63f url(gg/bg.webp) 50% 100% / cover no-repeat; }
+#pig { position:absolute; left:50%; bottom:4px; width:98%; max-height:74%; aspect-ratio:560/512; transform:translateX(-50%); }
+#pigpop, #pigmotion, #pigtalk { position:absolute; inset:0; transform-origin: 50% 100%; }
+#pigtalk { transform: translateY(calc(var(--talk,0) * -8px)) scale(calc(1 + var(--talk,0) * 0.04), calc(1 - var(--talk,0) * 0.025)); will-change: transform; }
+.pose { position:absolute; left:0; bottom:0; width:100%; height:100%; object-fit:contain; object-position: 50% 100%; opacity:0; transition: opacity .16s linear; user-select:none; pointer-events:none; filter: drop-shadow(0 3px 2px rgba(80,30,0,.35)); }
+.pose.on { opacity:1; }
+#pigpop.pop { animation: pop .32s ease-out; }
+@keyframes pop { 0% { transform: scale(.93,1.06); } 55% { transform: scale(1.05,.96); } 100% { transform: none; } }
+/* 各姿势的“活动” */
+#pigmotion[data-mo="idle"]    { animation: breathe 3.2s ease-in-out infinite, sway 6s ease-in-out infinite; }
+#pigmotion[data-mo="jump"]    { animation: jump .62s cubic-bezier(.3,.7,.4,1) infinite; }
+#pigmotion[data-mo="wave"]    { animation: wavetilt .7s ease-in-out infinite, breathe 3s ease-in-out infinite; }
+#pigmotion[data-mo="shake"]   { animation: shake .13s linear infinite; }
+#pigmotion[data-mo="pop"]     { animation: recoil .55s ease-out 1, tremble .25s linear .55s infinite; }
+#pigmotion[data-mo="droop"]   { animation: droop 4.2s ease-in-out infinite; }
+#pigmotion[data-mo="sleep"]   { animation: sleepb 4.6s ease-in-out infinite; }
+#pigmotion[data-mo="sleepy"]  { animation: sleepy 5.2s ease-in-out infinite; }
+#pigmotion[data-mo="chomp"]   { animation: chomp .5s ease-in-out infinite; }
+#pigmotion[data-mo="pump"]    { animation: pump .8s ease-in-out infinite; }
+@keyframes breathe { 0%,100% { transform: scale(1,1); } 50% { transform: scale(.987,1.026); } }
+@keyframes sway { 0%,100% { rotate: -1.2deg; } 50% { rotate: 1.2deg; } }
+@keyframes jump { 0% { transform: translateY(0) scale(1.06,.92); } 18% { transform: translateY(-4px) scale(.97,1.04); } 50% { transform: translateY(-18px) scale(.98,1.03) rotate(-2deg); } 82% { transform: translateY(-3px) scale(1,1); } 100% { transform: translateY(0) scale(1.06,.92); } }
+@keyframes wavetilt { 0%,100% { rotate: -3.5deg; } 50% { rotate: 3.5deg; } }
+@keyframes shake { 0% { translate: -3px 0; } 25% { translate: 3px 1px; } 50% { translate: -2px -1px; } 75% { translate: 3px 0; } 100% { translate: -3px 0; } }
+@keyframes recoil { 0% { transform: scale(1.14) rotate(5deg) translateY(-6px); } 40% { transform: scale(.95,1.02) rotate(-4deg); } 70% { transform: scale(1.03) rotate(1.5deg); } 100% { transform: none; } }
+@keyframes tremble { 0%,100% { translate: -1px 0; } 50% { translate: 1px 0; } }
+@keyframes droop { 0%,100% { transform: translateY(1px) scale(1.01,.97) rotate(-2deg); } 50% { transform: translateY(3px) scale(1.01,.955) rotate(2deg); } }
+@keyframes sleepb { 0%,100% { transform: scale(1.01,.975); } 50% { transform: scale(.985,1.025); } }
+@keyframes sleepy { 0%,100% { transform: scale(1,1) rotate(-1deg); } 50% { transform: scale(.99,1.02) rotate(2.5deg) translateY(2px); } }
+@keyframes chomp { 0%,100% { transform: translateY(0) scale(1,1); } 50% { transform: translateY(-3px) scale(1.015,.985); } }
+@keyframes pump { 0%,100% { transform: scale(1,1); } 50% { transform: scale(1.035,.985) translateY(-2px); } }
+#zzz { position:absolute; left:58%; top:6%; opacity:0; pointer-events:none; z-index:2; }
+#zzz.on { opacity:1; }
+#zzz b { position:absolute; left:0; top:0; font: bold 15px/1 Arial, sans-serif; color:#fff; text-shadow: 1px 1px 0 #3a78d8, -1px 0 #3a78d8, 0 -1px #3a78d8; opacity:0; animation: zfloat 2.6s ease-in infinite; }
+#zzz b:nth-child(2) { animation-delay: .85s; font-size:18px; } #zzz b:nth-child(3) { animation-delay: 1.7s; font-size:13px; }
+@keyframes zfloat { 0% { transform: translate(0,16px) scale(.6); opacity:0; } 20% { opacity:1; } 100% { transform: translate(18px,-34px) scale(1.15) rotate(12deg); opacity:0; } }
+.stage .bubble { position:absolute; left:6px; right:6px; top:6px; z-index:3; opacity:0; transform: translateY(6px) scale(.96); transition: opacity .2s, transform .2s; pointer-events:none;
+  background:#fff; border:1px solid #6a93c7; border-radius:7px; padding:4px 6px; font-size: 12px; line-height:1.45; color:#000; box-shadow: 1px 2px 0 rgba(30,70,140,.25); word-break:break-all; max-height: 62%; overflow:hidden; background:rgba(255,255,255,.96); }
+.stage .bubble::after { content:""; position:absolute; left: 50%; margin-left:-6px; bottom:-7px; width:10px; height:10px; background:#fff; border-right:1px solid #6a93c7; border-bottom:1px solid #6a93c7; transform: rotate(45deg); }
+.stage .bubble.on { opacity:1; transform:none; }
+.stage .label { position:absolute; right:4px; bottom:0px; z-index:4; font-size:11px; color:#7a5a10; background:rgba(255,255,255,.65); border-radius:3px 3px 0 0; padding:0 4px; line-height:15px; }
+.stage .hint { position:absolute; left:4px; bottom:20px; z-index:5; font-size:11px; color:#fff; background:rgba(220,60,30,.9); padding:1px 5px; border-radius:3px; }
+.qq-im-side ul.mlist li.bot { color:#b0140f; font-weight:bold; }
+.qq-im-side.hasshow .qq-im-zone div { font-size:11px; padding:0 3px; }
+.qq-im-side.noshow .qqshow { display:none; }
+.qq-im-side.nomembers .members, .qq-im-side.nomembers .qq-im-zone { display:none; }
+.qq-im-side.nomembers .qqshow { height:100%; max-height:none; border-bottom:none; }
+.qq-im-main { min-width:0; }
+.qq-im-chat, .qq-im-chat-msg { min-width:0; }
+.qq-im-btns { overflow:hidden; }

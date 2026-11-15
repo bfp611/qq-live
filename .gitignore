@@ -1,0 +1,65 @@
+.fish_api_key
+.venv/
+__pycache__/
+*.pyc
+.cache/
+data/bark_key.txt
+data/ops_token.txt
+data/ops_overrides.json
+data/guard_state.json
+data/logs/
+data/reports/
+data/memory.json
+data/play.json
+data/clips/
+data/story.json
+
+# ===== open-source hygiene (secrets / runtime / local-only) =====
+# 配置：真实配置不入库，复制 config.example.ini → config.ini
+config.ini
+config.local.ini
+*.local.ini
+.env
+.env.*
+*.pem
+*.key
+# 密钥 / 令牌
+.fish_api_key
+data/bark_key.txt
+data/ops_token.txt
+# 运行时数据（观众数据、日志、报告、切片、状态）
+data/*
+!data/.gitkeep
+data/logs/
+data/reports/
+data/clips/
+data/*.json
+data/*.txt
+# 虚拟环境、缓存、构建产物
+.venv/
+venv/
+__pycache__/
+*.pyc
+.cache/
+.pytest_cache/
+.DS_Store
+tools/mr/**/build/
+tools/mr/**/.git/
+# 浏览器 profile
+chrome-profile/
+.chrome-profile/
+*-profile/
+user-data-dir/
+# 商业歌曲音频（版权）——请部署者自己放，不要提交
+music/
+songs/
+data/music/
+*.mp3.bak
+# 注意：web/sound/ 下 4 个 QQ 提示音与 web/xp/snd 的系统音效是项目素材，已用白名单放行
+!web/sound/*.mp3
+!web/xp/snd/*.wav
+!web/xp/*.wav
+# 第三方克隆（上游 ungive/mediaremote-adapter，BSD-3；按 README 自行 git clone 到这里）
+tools/mr/
+# 游戏视频片段：版权属游戏/上传者，THIRD_PARTY_NOTICES 标明「不得再分发」，不入库（缺失时游戏窗口只显示菜单）
+web/xp/video/*.mp4

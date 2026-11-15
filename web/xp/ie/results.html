@@ -1,0 +1,9 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><title>搜索结果</title><style>
+body{margin:0;font:13px/1.55 "SimSun","宋体",serif;background:#fff;padding:8px 14px}a{color:#0000cc}em{color:#c60a00;font-style:normal}.h{display:flex;align-items:center;margin-bottom:8px}.h b{font:700 26px Arial;color:#2932e1;margin-right:14px}.h input.t{width:340px;height:22px;border:1px solid #7f9db9;font-size:14px}
+.bar{background:#e5ecf9;border-top:1px solid #36c;padding:3px 8px;margin-bottom:10px;color:#333}.r{margin-bottom:14px;max-width:640px}.r .t{font-size:14px}.r .u{color:#008000}.r .d{color:#000}</style></head><body>
+<form class="h" action="http://www.baidu.com/s"><b>Bai<span style="color:#e30">du</span>百度</b><input class="t" name="wd" id="wd"> <input type="submit" value="百度一下"></form>
+<div class="bar">搜索 <b id="kw"></b> ，找到相关网页约 <span id="n"></span> 篇，用时 0.0<span id="t"></span> 秒</div><div id="rs"></div>
+<script>var m=location.search.match(/wd=([^&]*)/),q=m?decodeURIComponent(m[1].replace(/\+/g,' ')):'';document.getElementById('wd').value=q;document.getElementById('kw').textContent=q;
+document.getElementById('n').textContent=(q.length*37123+120345).toLocaleString();document.getElementById('t').textContent=(q.length%7)+2;
+var P=['%s - 百度百科','%s 最新资料下载 - 下载之家','%s 论坛 - 天涯社区','%s_相关视频在线观看 - 优酷网','%s 吧 - 百度贴吧','关于 %s 的全部信息 - 新浪网','%s 官方网站','%s MP3 免费下载 - 百度MP3'];var U=['baike.baidu.com','www.onlinedown.net','bbs.tianya.cn','v.youku.com','tieba.baidu.com','www.sina.com.cn','www.'+(q.replace(/\W/g,'')||'example').toLowerCase()+'.com','mp3.baidu.com'];
+var h='';for(var i=0;i<8;i++){var k=q||'hao123';h+='<div class="r"><div class="t"><a href="http://'+U[i]+'/">'+P[i].replace('%s','<em>'+k+'</em>')+'</a></div><div class="d">...'+k+'，一站式了解 <em>'+k+'</em> 的相关内容，包括最新资讯、热门话题、图片与视频，欢迎访问……</div><div class="u">'+U[i]+'/ 2007-0'+(1+i%6)+'-1'+i+'</div></div>'}document.getElementById('rs').innerHTML=h;</script></body></html>

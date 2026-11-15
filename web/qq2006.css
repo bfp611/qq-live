@@ -1,0 +1,475 @@
+/* === 以下规则摘自 mengkunsoft/QQ2006 (index.html)，素材版权归腾讯所有，仅供学习交流 === */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font);
+    box-sizing: border-box;
+}
+
+button {
+    outline: none;
+    border: none;
+    background: transparent;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+input {
+    font-size: 12px;
+    outline: none;
+}
+
+img {
+    -webkit-user-drag: none;
+}
+
+.qq-flex-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.qq-single-line {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.qq-btn {
+    font-size: 12px;
+    background: linear-gradient(to bottom, #ffffff, #9FD4FF);
+    border: 1px solid #00558E;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.qq-btn:focus {
+    box-shadow: inset 0px 0 0 1px #ffe762, inset 0px 0 0 2px #fcb833;
+}
+.qq-btn:hover {
+    background: linear-gradient(to bottom, #ffffff, #B9E1FF);
+}
+
+.qq-btn:active {
+    background: linear-gradient(to bottom, #97C5EC, #D2F8FD);
+}
+
+.qq-title {
+    width: 100%;
+    height: 24px;
+    display: flex;
+    position: relative;
+}
+.qq-title-left {
+    background-image: url('img/BackgroundTitleLeft.png');
+    background-repeat: no-repeat;
+    width: 64px;
+}
+.qq-title-center {
+    flex: 1;
+    background-image: url('img/BackgroundTitleCenter.png');
+}
+.qq-title-right {
+    background-image: url('img/BackgroundTitleRight.png');
+    background-repeat: no-repeat;
+    width: 14px;
+}
+.qq-title-btns {
+    display: flex;
+    gap: 1px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+.qq-title-btns > button {
+    width: 16px;
+    height: 16px;
+}
+.qq-body {
+    flex: 1;
+    position: relative;
+}
+.qq-body-left {
+    background-image: url('img/BackgroundL.png');
+    width: 11px;
+}
+.qq-body-center {
+    background-image: url('img/BackgroundC.png');
+    flex: 1;
+}
+.qq-body-right {
+    background-image: url('img/BackgroundR.png');
+    width: 8px;
+}
+
+.qq-im {
+    background: #5db7ff;
+    width: 500px;
+    height: 460px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+
+
+.qq-im .qq-title-btns {
+    gap: 0;
+}
+.qq-im .qq-title-btns > button {
+    width: 17px;
+    height: 16px;
+}
+
+#qq-im-min {
+    background-image: url('img/im/IMMinButton_Normal.png');
+}
+#qq-im-min:hover {
+    background-image: url('img/im/IMMinButton_Hover.png');
+}
+#qq-im-min:active {
+    background-image: url('img/im/IMMinButton_Down.png');
+}
+
+#qq-im-max {
+    background-image: url('img/im/IMMaxButton_Normal.png');
+}
+#qq-im-max:hover {
+    background-image: url('img/im/IMMaxButton_Hover.png');
+}
+#qq-im-max:active {
+    background-image: url('img/im/IMMaxButton_Down.png');
+}
+
+#qq-im-close {
+    background-image: url('img/im/IMCloseButton_Normal.png');
+}
+#qq-im-close:hover {
+    background-image: url('img/im/IMCloseButton_Hover.png');
+}
+#qq-im-close:active {
+    background-image: url('img/im/IMCloseButton_Down.png');
+}
+
+.qq-title-icon, .qq-title-text {
+    position: absolute;
+    color: #fff;
+    font-weight: bold;
+    cursor: default;
+}
+.qq-title-icon {
+    background-image: url('img/im/icon.png');
+    width: 16px;
+    height: 16px;
+    left: 5px;
+    top: 5px;
+}
+.qq-title-text {
+    left: 22px;
+    top: 6px;
+}
+
+.qq-skin,
+.qq-contant {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.qq-skin > div {
+    display: flex;
+}
+.qq-skin .qq-title-bg {
+    height: 26px;
+}
+.qq-skin .qq-body-bg {
+    flex: 1;
+}
+
+.qq-im .qq-title-left {
+    background-image: url('img/im/IMBorderTop.png');
+    width: 25px;
+}
+.qq-im .qq-title-center {
+    background-image: url('img/im/IMBorderTop.png');
+    background-size: 10000px 26px;
+    background-position: top;
+}
+
+.qq-im .qq-bottom-left,
+.qq-im .qq-bottom-center,
+.qq-im .qq-bottom-right {
+    background-image: url('img/im/IMBorderBottom.png');
+    height: 8px;
+}
+.qq-im .qq-bottom-left {
+    width: 10px;
+}
+.qq-im .qq-bottom-center {
+    background-size: 10000px 8px;
+    background-position: top;
+    flex: 1;
+}
+.qq-im .qq-bottom-right {
+    width: 10px;
+    background-position: right;
+}
+
+.qq-im-big-toolbar {
+    margin: 0 4px;
+    padding-left: 6px;
+    height: 36px;
+    background-image: url('img/im/IMBigToolBarBackground.png');
+    display: flex;
+}
+.qq-im-big-toolbar button {
+    color: rgb(7,30,129);
+    font-weight: bold;
+    background-repeat: no-repeat;
+    background-position: center left;
+    background-position-x: 2px;
+    padding: 0 8px 0 28px;
+    border: 1px solid transparent;
+}
+.qq-im-big-toolbar button:hover {
+    border-color: rgb(70,136,201);
+    background-color: rgb(130,199,255);
+}
+.qq-im-big-toolbar button:active {
+    border-color: rgb(40,99,157);
+    background-color: rgb(83,168,245);
+}
+#qq-im-msg {
+    background-image: url('img/im/IMBigToolbarMQQ.png');
+}
+#qq-im-video {
+    background-image: url('img/im/IMBigToolbarVideo.png');
+}
+#qq-im-audio {
+    background-image: url('img/im/IMBigToolbarQQSQQ.png');
+}
+#qq-im-file {
+    background-image: url('img/im/IMBigToolbarSendFile.png');
+}
+#qq-im-3d {
+    background-image: url('img/im/IMBigToolbar3DShow.png');
+}
+#qq-im-invite {
+    background-image: url('img/im/IMBigToolbarInvite.png');
+}
+
+.qq-im-contant {
+    display: flex;
+    flex: 1;
+    gap: 4px;
+    padding: 0 8px 8px;
+    overflow: hidden;
+    min-height: 0;
+}
+
+.qq-im-main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 6px;
+    min-height: 0;
+}
+.qq-im-side, .qq-im-chat {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(53,111,175);
+    width: 140px;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* 聊天框聊天区域 */
+.qq-im-chat {
+    width: 100%;
+    border-radius: 4px;
+    background-color: #fff;
+    overflow: hidden;
+    min-height: 0;
+}
+
+.qq-im-chat-msg {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0; 
+}
+
+.qq-im-friend-info {
+    background: linear-gradient(to bottom, #ffffff, #b6d5f5);
+    border-bottom: 1px solid #84a6c6;
+    padding: 1px 2px;
+    color: rgb(7,30,129);
+    cursor: pointer;
+}
+.qq-im-friend-info:hover {
+    color: rgb(99,119,190);
+}
+.qq-im-friend-info img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    vertical-align: sub;
+    float: left;
+}
+
+.qq-im-chat-msg-list {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 5px;
+    min-height: 0;
+    max-height: 100%;
+}
+.qq-im-chat-msg-list li p {
+    color: #000;
+    padding-left: 15px;
+    line-height: 1.4;
+}
+.qq-im-chat-msg-list li p:first-of-type {
+    color: #210f95;
+    padding-left: 0;
+}
+.qq-im-chat-msg-list li.my p:first-of-type {
+    color: #2d794b;
+}
+.qq-im-chat-msg-list li p:first-of-type span {
+    font-size: 12px;
+    padding-left: 8px;
+}
+
+.qq-im-chat-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    height: 20px;
+    padding-left: 4px;
+    background: url('img/im/IMSmallToolbarBackground.png');
+    background-size: 10000px 100%;
+    background-position: center;
+}
+
+.qq-im-chat-toolbar button {
+    width: 18px;
+    height: 18px;
+    border: 1px solid transparent;
+    background-image: url('img/im/IMSmallToolbarFace.png');
+}
+
+.qq-im-chat-toolbar button:hover {
+    border-color: rgb(135,164,197);
+    background-color: rgb(183,214,245);
+}
+.qq-im-chat-toolbar button:active {
+    border-color: rgb(109,146,186);
+    background-color: rgb(170,200,230);
+}
+.qq-im-chat-toolbar .im-toolbar-font {
+    background-image: url('img/im/IMSmallToolbarFont.png');
+}
+.qq-im-chat-toolbar .im-toolbar-face {
+    background-image: url('img/im/IMSmallToolbarFace.png');
+}
+.qq-im-chat-toolbar .im-toolbar-other {
+    background-image: url('img/im/IMSmallToolbarOtherContent.png');
+}
+.qq-im-chat-toolbar .im-toolbar-picture {
+    background-image: url('img/im/IMSmallToolbarPicture.png');
+}
+.qq-im-chat-toolbar .im-toolbar-catch {
+    background-image: url('img/im/IMSmallToolbarCatch.png');
+}
+.qq-im-chat-toolbar .im-toolbar-scene {
+    background-image: url('img/im/IMSmallToolbarScene.png');
+}
+.qq-im-chat-toolbar .im-toolbar-bag {
+    background-image: url('img/im/IMSmallToolbarSuperbag.png');
+}
+.qq-im-chat-toolbar .im-toolbar-ptt {
+    background-image: url('img/im/IMSmallToolbarPtt.png');
+}
+.qq-im-chat-toolbar span {
+    background: rgb(114,149,188);
+    width: 1px;
+    height: 80%;
+}
+
+.qq-im-chat-send {
+    height: 70px;
+    padding: 4px;
+    border: none;
+    outline: none;
+    resize: none;
+}
+
+.qq-im-btns {
+    display: flex;
+    height: 20px;
+    gap: 5px;
+}
+.qq-im-btns span {
+    flex: 1;
+}
+.qq-im-btns .qq-btn {
+    padding: 0 2px;
+}
+
+/* 聊天框右侧栏 */
+.qq-im-side-btn {
+    position: relative;
+    height: 20px;
+    width: 100%;
+    z-index: 2;
+    text-align: left;
+    padding-left: 20px;
+    background-image: url('img/im/IMSidebarButtonExpand_Normal.png');
+    background-size: 1000px 100%;
+}
+.qq-im-side-btn::before,
+.qq-im-side-btn::after {
+    position: absolute;
+    content: '';
+    height: 100%;
+    top: 0;
+    z-index: -1;
+}
+.qq-im-side-btn::before {
+    background-image: url('img/im/IMSidebarButton_Normal.png');
+    width: 50px;
+    left: 0;
+}
+.qq-im-side-btn::after {
+    background-image: url('img/im/IMSidebarMenu_Normal.png');
+    width: 33px;
+    right: 0;
+}
+.qq-im-side-btn:hover::before {
+    background-image: url('img/im/IMSidebarButton_Hover.png');
+}
+.qq-im-side-btn:hover::after {
+    background-image: url('img/im/IMSidebarMenu_Hover.png');
+}
+.qq-im-show {
+    height: 100%;
+    background-size: cover;
+    background-position: 50%;
+}
+.qq-im-zone {
+    background: #f6f6f6;
+    color: #0f0657;
+}
+.qq-im-zone div {
+    line-height: 1.4;
+    padding: 0 2px;
+}
+.qq-im-zone span {
+    color: red;
+}
+</style>
+</head>
+/* === 摘录结束 === */

@@ -1,0 +1,6 @@
+aiohttp>=3.9
+requests>=2.31
+websocket-client>=1.7
+betterproto==2.0.0b6
+mini_racer>=0.12.4
+edge-tts>=6.1

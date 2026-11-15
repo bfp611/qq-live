@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>怀旧QQ直播间</title>
+<link rel="shortcut icon" href="img/qq.png">
+<link rel="stylesheet" href="qqpanel.css">
+<link rel="stylesheet" href="qq2006.css">
+<link rel="stylesheet" href="app.css">
+<link rel="stylesheet" href="desk.css">
+<link rel="stylesheet" href="wm.css">
+<link rel="stylesheet" href="apps.css">
+<link rel="stylesheet" href="agent.css">
+<link rel="stylesheet" href="xp.css">
+</head>
+<body>
+<div id="win" class="qq-im">
+  <div class="qq-skin">
+    <div class="qq-title-bg"><div class="qq-title-left"></div><div class="qq-title-center"></div><div class="qq-title-right"></div></div>
+    <div class="qq-body-bg"><div class="qq-body-left"></div><div class="qq-body-center"></div><div class="qq-body-right"></div></div>
+    <div class="qq-bottom-bg"><div class="qq-bottom-left"></div><div class="qq-bottom-center"></div><div class="qq-bottom-right"></div></div>
+  </div>
+  <div class="qq-contant">
+    <div class="qq-title">
+      <div class="qq-title-icon"></div>
+      <div class="qq-title-text" id="title">怀旧QQ群</div>
+      <div class="qq-title-btns"><button id="qq-im-min"></button><button id="qq-im-max"></button><button id="qq-im-close"></button></div>
+    </div>
+    <div class="qq-im-big-toolbar">
+      <button id="qq-im-groupmail">群邮件</button>
+      <button id="qq-im-groupspace">群空间</button>
+      <button id="qq-im-muti">多人语音</button>
+      <button id="qq-im-live">QQ直播</button>
+      <button id="qq-im-music">音乐</button>
+      <button id="qq-im-invite">邀请</button>
+    </div>
+    <div class="qq-im-contant">
+      <div class="qq-im-main">
+        <div class="qq-im-chat">
+          <div class="qq-im-chat-msg">
+            <div class="qq-im-friend-info"><img id="gavatar" src="gg/head8.png"><p id="notice"></p></div>
+            <ul class="qq-im-chat-msg-list" id="list"></ul>
+          </div>
+          <div class="qq-im-chat-toolbar">
+            <button class="im-toolbar-font"></button><button class="im-toolbar-face"></button><button class="im-toolbar-other"></button>
+            <span></span>
+            <button class="im-toolbar-picture"></button><button class="im-toolbar-catch"></button><button class="im-toolbar-scene"></button>
+            <button class="im-toolbar-bag"></button><button class="im-toolbar-ptt"></button>
+          </div>
+          <div class="qq-im-chat-send" id="input"></div>
+        </div>
+        <div class="qq-im-btns">
+          <button class="qq-btn">聊天记录(H)</button>
+          <button class="qq-btn">消息模式(T)</button>
+          <span></span>
+          <button class="qq-btn">关闭(C)</button>
+          <div style="display:flex;gap:2px;"><button class="qq-btn">发送(S)</button><button class="qq-btn" style="padding:0;">↓</button></div>
+        </div>
+      </div>
+      <div class="qq-im-side" id="side">
+        <div class="qqshow" id="qqshow">
+          <button class="qq-im-side-btn" id="showname">猪猪侠的QQ秀</button>
+          <div class="stage" id="stage">
+            <div class="bubble" id="bubble"><span id="btext"></span></div>
+            <div id="pig" data-mo="idle">
+              <div id="pigpop"><div id="pigmotion" data-mo="idle"><div id="pigtalk">
+                <img class="pose on" id="poseA" alt="" draggable="false"><img class="pose" id="poseB" alt="" draggable="false">
+              </div></div></div>
+              <div id="zzz"><b>Z</b><b>Z</b><b>z</b></div>
+            </div>
+            <div class="label" id="hostlabel">AI虚拟主播</div>
+            <div class="hint hide" id="soundhint">点击页面开启声音</div>
+          </div>
+        </div>
+        <div class="members">
+          <button class="qq-im-side-btn" id="mcount">群成员</button>
+          <ul class="mlist" id="mlist"></ul>
+        </div>
+        <div class="qq-im-zone">
+          <button class="qq-im-side-btn">群信息</button>
+          <div>在线：<span id="s-online">-</span> 人 · 弹幕：<span id="s-chats">0</span></div>
+          <div>累计：<span id="s-total">-</span> · 礼物：<span id="s-gifts">0</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<audio id="snd" src="sound/msg.mp3" preload="auto"></audio>
+<script src="desk.js"></script>
+<script src="story.js"></script>
+<script src="wm.js"></script>
+<script src="desktop.js"></script>
+<script src="xp-core.js"></script>
+<script src="xp-screens.js"></script>
+<script src="apps-core.js"></script>
+<script src="apps-explorer.js"></script>
+<script src="apps-ie.js"></script>
+<script src="apps-games.js"></script>
+<script src="apps-media.js"></script>
+<script src="apps-mine.js"></script>
+<script src="apps-paint.js"></script>
+<script src="apps-control.js"></script>
+<script src="apps-cards.js"></script>
+<script src="apps-qq-tpl.js"></script>
+<script src="apps-qq.js"></script>
+<script src="app.js"></script>
+<script src="apps-groupchat.js"></script>
+<script src="qq-core.js"></script>
+<script src="qq-show.js"></script>
+<script src="qq-pet.js"></script>
+<script src="qq-zone.js"></script>
+<script src="qq-files.js"></script>
+<script src="play-core.js"></script>
+<script src="play-ui.js"></script>
+<script src="ai-ui.js"></script>
+<script src="ops-ui.js"></script>
+<script src="play-fx.js"></script>
+<script src="agent.js"></script>
+<script src="giftfx.js"></script>
+<script src="agent-actions.js"></script>
+<script src="autoclose.js"></script>
+</body>
+</html>

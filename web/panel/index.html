@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0054e3">
+<meta name="robots" content="noindex">
+<title>直播控制台</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="/panel/panel.css">
+</head>
+<body>
+<div id="app" class="win">
+  <div class="tb"><span class="ti">直播控制台 - GG-Bond</span><span id="chip" class="chip off">连接中</span></div>
+  <div id="alarm" class="alarm hide" role="alert"></div>
+  <div id="login" class="body hide">
+    <div class="box"><h3>输入面板令牌</h3>
+      <p class="muted">令牌在运行服务的电脑上：<code>data/ops_token.txt</code>（或 <code>python tools/opsctl.py panel-qr</code> 扫码，免输入）。</p>
+      <input id="tok" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="令牌">
+      <button id="go" class="btn pri">登录</button><div id="lerr" class="err"></div></div>
+  </div>
+  <div id="main" class="body hide">
+    <section id="t-home" class="tab"></section>
+    <section id="t-chat" class="tab hide"></section>
+    <section id="t-sw" class="tab hide"></section>
+    <section id="t-do" class="tab hide"></section>
+    <section id="t-clips" class="tab hide"></section>
+    <section id="t-story" class="tab hide"></section>
+    <section id="t-q" class="tab hide"></section>
+  </div>
+  <nav id="bar" class="bar hide">
+    <button data-t="home" class="on">概览</button><button data-t="chat">弹幕</button><button data-t="sw">开关</button><button data-t="do">控制</button><button data-t="clips">切片</button><button data-t="story">剧情</button><button data-t="q">队列</button>
+  </nav>
+</div>
+<div id="toast" class="toast hide"></div>
+<script src="/panel/panel.js"></script>
+</body>
+</html>

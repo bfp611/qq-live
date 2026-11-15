@@ -1,0 +1,13 @@
+/* 桌面 Agent：XP 鼠标光标 + 点击涟漪 + “谁在指挥”小标签（光标图形是自绘的 SVG：xp/cursor/*.svg） */
+#ag-cur { position:absolute; left:0; top:0; z-index:2147483000; pointer-events:none; will-change:transform; transition:opacity .35s; opacity:1; }
+#ag-cur.hide { opacity:0; }
+#ag-cur .ag-ic { display:block; background:no-repeat 0 0 / contain; filter:drop-shadow(1px 2px 1.5px rgba(0,0,0,.45)); }
+#ag-cur.arrow .ag-ic { width:16px; height:24px; background-image:url(xp/cursor/arrow.svg); }
+#ag-cur.hand .ag-ic { width:20px; height:24px; background-image:url(xp/cursor/hand.svg); }
+#ag-cur.ibeam .ag-ic { width:10px; height:20px; background-image:url(xp/cursor/ibeam.svg); }
+#ag-cur .ag-who { position:absolute; left:16px; top:20px; white-space:nowrap; font:700 11px/16px var(--xpfont,Tahoma,SimSun,serif); color:#000; background:#ffffe1; border:1px solid #000; padding:0 4px; box-shadow:1px 1px 0 rgba(0,0,0,.35); display:none; }
+#ag-cur.who .ag-who { display:block; }
+#ag-ring { position:absolute; left:0; top:0; z-index:2147482999; pointer-events:none; width:26px; height:26px; margin:-13px 0 0 -13px; border-radius:50%; border:2px solid rgba(49,106,197,.9); box-shadow:0 0 6px rgba(120,170,255,.8); opacity:0; }
+#ag-ring.go { animation:agring .42s ease-out; }
+#ag-ring.rc { border-color:rgba(230,120,30,.95); box-shadow:0 0 6px rgba(255,170,90,.8); }
+@keyframes agring { 0% { opacity:.95; transform:scale(.25); } 100% { opacity:0; transform:scale(1.35); } }

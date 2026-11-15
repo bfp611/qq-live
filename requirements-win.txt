@@ -1,0 +1,6 @@
+# Windows 额外依赖（install.ps1 会连同 requirements.txt 一起装）：用 WinRT 读系统媒体控件（GSMTC）里的「正在播放」
+winrt-runtime>=2.0
+winrt-Windows.Media.Control>=2.0
+winrt-Windows.Storage.Streams>=2.0
+winrt-Windows.Foundation>=2.0
+winrt-Windows.Foundation.Collections>=2.0
